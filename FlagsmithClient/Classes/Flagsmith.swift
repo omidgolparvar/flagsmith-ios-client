@@ -225,8 +225,8 @@ public class Flagsmith {
   ///   - completion: Closure with Result which contains Trait in case of success or Error in case of failure
   public func setTrait(_ trait: Trait,
                        forIdentity identity: String,
-                       completion: @escaping (Result<Trait, Error>) -> Void) {
-    apiManager.request(.postTrait(trait: trait, identity: identity)) { (result: Result<Trait, Error>) in
+                       completion: @escaping (Result<Identity, Error>) -> Void) {
+    apiManager.request(.postTrait(trait: trait, identity: identity)) { (result: Result<Identity, Error>) in
       completion(result)
     }
   }
@@ -239,9 +239,9 @@ public class Flagsmith {
   ///   - completion: Closure with Result which contains Traits in case of success or Error in case of failure
   public func setTraits(_ traits: [Trait],
                         forIdentity identity: String,
-                        completion: @escaping (Result<[Trait], Error>) -> Void) {
-    apiManager.request(.postTraits(identity: identity, traits: traits)) { (result: Result<Traits, Error>) in
-        completion(result.map(\.traits))
+                        completion: @escaping (Result<Identity, Error>) -> Void) {
+    apiManager.request(.postTraits(identity: identity, traits: traits)) { (result: Result<Identity, Error>) in
+      completion(result)
     }
   }
   

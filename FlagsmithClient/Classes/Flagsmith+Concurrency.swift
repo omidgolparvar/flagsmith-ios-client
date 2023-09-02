@@ -130,7 +130,7 @@ public extension Flagsmith {
   ///   - trait: Trait to be created or updated
   ///   - identity: ID of the user
   /// - returns: The Trait requested to be set.
-  @discardableResult func setTrait(_ trait: Trait, forIdentity identity: String) async throws -> Trait {
+  @discardableResult func setTrait(_ trait: Trait, forIdentity identity: String) async throws -> Identity {
     try await withCheckedThrowingContinuation({ continuation in
       setTrait(trait, forIdentity: identity) { result in
         switch result {
@@ -149,7 +149,7 @@ public extension Flagsmith {
   ///   - trait: Traits to be created or updated
   ///   - identity: ID of the user
   /// - returns: The Traits requested to be set.
-  @discardableResult func setTraits(_ traits: [Trait], forIdentity identity: String) async throws -> [Trait] {
+  @discardableResult func setTraits(_ traits: [Trait], forIdentity identity: String) async throws -> Identity {
       try await withCheckedThrowingContinuation({ continuation in
           setTraits(traits, forIdentity: identity) { result in
               switch result {
